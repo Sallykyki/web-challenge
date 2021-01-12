@@ -5,6 +5,8 @@ import Tab from "react-bootstrap/Tab";
 import JobsTable from "../../components/JobsTable";
 import UsersTable from "../../components/UsersTable";
 import CustomersTable from "../../components/CustomersTable";
+import Container from "react-bootstrap/esm/Container";
+import "./ListPage.scss";
 
 interface IProps {}
 
@@ -19,8 +21,8 @@ class ListPage extends React.Component<IProps, IState> {
     const currentUser = localStorage.getItem("loggedAccount");
     console.log(currentUser);
     return (
-      <div>
-        this is list page
+      <Container fluid className="component-ListPage">
+        <h1>Dashboard</h1>
         <Tabs defaultActiveKey="jobs">
           <Tab eventKey="jobs" title="JOBS">
             <JobsTable currentUser={currentUser!} />
@@ -32,7 +34,7 @@ class ListPage extends React.Component<IProps, IState> {
             <CustomersTable />
           </Tab>
         </Tabs>
-      </div>
+      </Container>
     );
   }
 }
