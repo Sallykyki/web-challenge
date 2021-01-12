@@ -1,5 +1,4 @@
 import React from "react";
-import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 

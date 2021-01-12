@@ -1,27 +1,57 @@
 import React from "react";
-import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import BootstrapTable, { ColumnDescription } from "react-bootstrap-table-next";
 import { getJobs } from "../../data/fetchData";
 
 interface IProps {
   currentUser: string;
 }
 
+const columns: ColumnDescription[] = [
+  {
+    dataField: "id",
+    text: "Job ID",
+    sort: true,
+  },
+  {
+    dataField: "name",
+    text: "Job name",
+    sort: true,
+  },
+  {
+    dataField: "customerName",
+    text: "Customer",
+    sort: true,
+  },
+  {
+    dataField: "customerLocation",
+    text: "Location",
+    sort: true,
+  },
+  {
+    dataField: "dateStart",
+    text: "Date start",
+    sort: true,
+  },
+  {
+    dataField: "dateEnd",
+    text: "Date end",
+    sort: true,
+  },
+  {
+    dataField: "status",
+    text: "Status",
+    sort: true,
+  },
+];
+
 const JobsTable = ({ currentUser }: IProps) => {
   return (
-    <BootstrapTable data={getJobs(currentUser)} version="4">
-      <TableHeaderColumn isKey dataField="id">
-        Job ID
-      </TableHeaderColumn>
-      <TableHeaderColumn dataField="name">Job name</TableHeaderColumn>
-      <TableHeaderColumn dataField="customerName">Customer</TableHeaderColumn>
-      <TableHeaderColumn dataField="customerLocation">
-        Location
-      </TableHeaderColumn>
-
-      <TableHeaderColumn dataField="dateStart">Date start</TableHeaderColumn>
-      <TableHeaderColumn dataField="dateEnd">Date end</TableHeaderColumn>
-      <TableHeaderColumn dataField="status">Status</TableHeaderColumn>
-    </BootstrapTable>
+    <BootstrapTable
+      keyField="id"
+      data={getJobs(currentUser)}
+      columns={columns}
+      bootstrap4
+    ></BootstrapTable>
   );
 };
 

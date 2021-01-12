@@ -1,15 +1,28 @@
 import React from "react";
-import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import BootstrapTable, { ColumnDescription } from "react-bootstrap-table-next";
 import { getCustomers } from "../../data/fetchData";
+
+const columns: ColumnDescription[] = [
+  {
+    dataField: "name",
+    text: "Customer name",
+    sort: true,
+  },
+  {
+    dataField: "location",
+    text: "Location",
+    sort: true,
+  },
+];
 
 const CustomersTable = () => {
   return (
-    <BootstrapTable data={getCustomers()} version="4">
-      <TableHeaderColumn isKey dataField="name">
-        Customer name
-      </TableHeaderColumn>
-      <TableHeaderColumn dataField="location">Location</TableHeaderColumn>
-    </BootstrapTable>
+    <BootstrapTable
+      keyField="name"
+      data={getCustomers()}
+      columns={columns}
+      bootstrap4
+    ></BootstrapTable>
   );
 };
 
