@@ -1,5 +1,6 @@
 import React from "react";
 import BootstrapTable, { ColumnDescription } from "react-bootstrap-table-next";
+import { Link } from "react-router-dom";
 import { getJobs } from "../../data/fetchData";
 
 interface IProps {
@@ -16,6 +17,9 @@ const columns: ColumnDescription[] = [
     dataField: "name",
     text: "Job name",
     sort: true,
+    formatter: (cell, row, rowIndex, formatExtraData) => {
+      return <Link to={`/job/${row.id}`}>{cell}</Link>;
+    },
   },
   {
     dataField: "customerName",

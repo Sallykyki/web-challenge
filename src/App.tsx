@@ -3,6 +3,7 @@ import "./styles/app.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/LoginPage";
 import ListPage from "./pages/ListPage/ListPage";
+import JobPage from "./pages/JobPage";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/list" exact>
             <ListPage />
+          </Route>
+          <Route path="/job/:id" exact>
+            <JobPage />
           </Route>
         </Switch>
       </Router>
