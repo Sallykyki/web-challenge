@@ -1,0 +1,11 @@
+.component-LoginPage {
+  margin-top: 3.5rem;
+  &__form {
+    .form-control {
+      border-radius: 0.25rem !important;
+    }
+    &__button {
+      width: 100%;
+    }
+  }
+}

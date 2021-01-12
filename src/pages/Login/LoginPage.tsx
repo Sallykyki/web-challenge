@@ -3,6 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { getUsers } from "../../data/fetchData";
 import { RouteComponentProps, withRouter } from "react-router";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./LoginPage.scss";
 
 interface IProps extends RouteComponentProps {}
 
@@ -57,31 +61,42 @@ class LoginPage extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <Form className="component-LoginPage">
-        <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            autoFocus
-            type="name"
-            placeholder="Enter your username"
-            onChange={this.onUsernameChange}
-            value={this.state.username}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter your password"
-            onChange={this.onPasswordChange}
-            value={this.state.password}
-          />
-        </Form.Group>
-        {this.state.error}
-        <Button variant="primary" onClick={this.handleClick}>
-          Login
-        </Button>
-      </Form>
+      <Container className="component-LoginPage">
+        <Row>
+          <Col xs={12} sm={{ span: 4, offset: 4 }}>
+            <h1 className="text-center">Login</h1>
+            <Form className="component-LoginPage__form">
+              <Form.Group>
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  autoFocus
+                  type="name"
+                  placeholder="Enter your username"
+                  onChange={this.onUsernameChange}
+                  value={this.state.username}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter your password"
+                  onChange={this.onPasswordChange}
+                  value={this.state.password}
+                />
+              </Form.Group>
+              {this.state.error}
+              <Button
+                variant="primary"
+                onClick={this.handleClick}
+                className="component-LoginPage__form__button"
+              >
+                Login
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
