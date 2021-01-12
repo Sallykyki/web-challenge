@@ -45,6 +45,8 @@ class LoginPage extends React.Component<IProps, IState> {
     );
 
     if (validation) {
+      localStorage.setItem("loggedAccount", payload.username);
+
       this.props.history.push("/list");
     } else {
       this.setState({

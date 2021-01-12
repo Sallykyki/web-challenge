@@ -1,4 +1,6 @@
 import React from "react";
+import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
+import JobsTable from "../../components/JobsTable";
 
 interface IProps {}
 
@@ -10,7 +12,14 @@ class ListPage extends React.Component<IProps, IState> {
   }
 
   render() {
-    return <div>this is list page</div>;
+    const currentUser = localStorage.getItem("loggedAccount");
+    console.log(currentUser);
+    return (
+      <div>
+        this is list page
+        <JobsTable currentUser={currentUser!} />
+      </div>
+    );
   }
 }
 
