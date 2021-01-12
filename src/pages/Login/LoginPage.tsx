@@ -2,12 +2,14 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { getUsers } from "../../data/fetchData";
+import { RouteComponentProps, withRouter } from "react-router";
 
-interface IProps {}
+interface IProps extends RouteComponentProps {}
 
 interface IState {
   username: string;
   password: string;
+  error: string;
 }
 
 class LoginPage extends React.Component<IProps, IState> {
@@ -16,6 +18,7 @@ class LoginPage extends React.Component<IProps, IState> {
     this.state = {
       username: "",
       password: "",
+      error: "",
     };
   }
 
@@ -38,11 +41,15 @@ class LoginPage extends React.Component<IProps, IState> {
 
     const validation = users.some(
       (user) =>
-        user.name === payload.username && user.password === payload.password
+        user.username === payload.username && user.password === payload.password
     );
 
     if (validation) {
+      this.props.history.push("/list");
     } else {
+      this.setState({
+        error: "Username and password is not correct. Please enter again.",
+      });
     }
   };
 
@@ -68,6 +75,7 @@ class LoginPage extends React.Component<IProps, IState> {
             value={this.state.password}
           />
         </Form.Group>
+        {this.state.error}
         <Button variant="primary" onClick={this.handleClick}>
           Login
         </Button>
@@ -76,4 +84,4 @@ class LoginPage extends React.Component<IProps, IState> {
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
