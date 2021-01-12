@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import ChatBox from "../../components/ChatBox";
+import "./JobPage.scss";
 
 interface IJobPageParams {
   id: string;
@@ -24,10 +25,10 @@ const JobPage: FunctionComponent<IProps> = (props) => {
   }
 
   return (
-    <Container>
+    <Container className="component-JobPage" fluid>
       <Row>
-        <Col>
-          <h1>{job.name}</h1>
+        <Col sm={9}>
+          <h1>Job: {job.name}</h1>
           <Tab.Container id="left-tabs-example" defaultActiveKey="info">
             <Row>
               <Col sm={3}>
@@ -46,21 +47,29 @@ const JobPage: FunctionComponent<IProps> = (props) => {
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="info">
-                    <div>
-                      <h2>Job information</h2>
-                      <p>Job ID: {job.id}</p>
-                      <p>Status: {job.status}</p>
-                    </div>
+                    <h2 className="component-JobPage__tab-heading">
+                      Job information
+                    </h2>
+                    <p>Job ID: {job.id}</p>
+                    <p>Status: {job.status}</p>
                   </Tab.Pane>
-                  <Tab.Pane eventKey="tasks">Tasks</Tab.Pane>
-                  <Tab.Pane eventKey="photos">Photos</Tab.Pane>
+                  <Tab.Pane eventKey="tasks">
+                    <h2 className="component-JobPage__tab-heading">
+                      Job tasks
+                    </h2>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="photos">
+                    <h2 className="component-JobPage__tab-heading">
+                      Archived photos
+                    </h2>
+                  </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>
           </Tab.Container>
         </Col>
         <Col>
-          <h1>Room for discussion</h1>
+          <h2>Room for discussion</h2>
           <ChatBox />
         </Col>
       </Row>

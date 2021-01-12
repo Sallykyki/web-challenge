@@ -1,2 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+@import "~react-chatbox-component/dist/style.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #28282d;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
