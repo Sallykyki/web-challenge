@@ -1,5 +1,4 @@
 import React from "react";
-import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { getJobs } from "../../data/fetchData";
 

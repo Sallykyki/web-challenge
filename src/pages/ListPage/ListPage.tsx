@@ -1,6 +1,11 @@
 import React from "react";
 import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+
 import JobsTable from "../../components/JobsTable";
+import UsersTable from "../../components/UsersTable";
+import CustomersTable from "../../components/CustomersTable";
 
 interface IProps {}
 
@@ -17,7 +22,17 @@ class ListPage extends React.Component<IProps, IState> {
     return (
       <div>
         this is list page
-        <JobsTable currentUser={currentUser!} />
+        <Tabs defaultActiveKey="jobs">
+          <Tab eventKey="jobs" title="JOBS">
+            <JobsTable currentUser={currentUser!} />
+          </Tab>
+          <Tab eventKey="profile" title="USERS">
+            <UsersTable />
+          </Tab>
+          <Tab eventKey="contact" title="CUSTOMERS">
+            <CustomersTable />
+          </Tab>
+        </Tabs>
       </div>
     );
   }
