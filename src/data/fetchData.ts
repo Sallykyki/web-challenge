@@ -26,4 +26,18 @@ const getJobs = (username?: string) => {
   });
 };
 
-export { getUsers, getCustomers, getJobs };
+const getJob = (id: string) => {
+  const index = jobs.findIndex((job) => job.id === id);
+
+  return jobs[index];
+};
+
+const updateJob = (id: string, newJob: any) => {
+  const index = jobs.findIndex((job) => job.id === id);
+
+  jobs[index] = newJob;
+
+  console.log(jobs);
+};
+
+export { getUsers, getCustomers, getJobs, getJob, updateJob };

@@ -5,4 +5,18 @@
   &__tab-heading {
     margin-bottom: 1.2rem;
   }
+  &__info {
+    &--id,
+    &--status,
+    &--details {
+      margin-bottom: 1.2rem;
+    }
+    &--status {
+      display: flex;
+      align-items: center;
+      .dropdown {
+        margin-left: 0.5rem;
+      }
+    }
+  }
 }
