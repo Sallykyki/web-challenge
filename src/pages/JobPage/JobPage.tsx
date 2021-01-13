@@ -106,6 +106,13 @@ class JobPage extends Component<IProps, IState> {
                       <h2 className="component-JobPage__tab-heading">
                         Job tasks
                       </h2>
+                      {job.tasks.map((task: any, idx: any) => (
+                        <ul>
+                          <li key={idx}>
+                            {task.name}. Due date: {task.dueDate}
+                          </li>
+                        </ul>
+                      ))}
                     </Tab.Pane>
                     <Tab.Pane eventKey="photos">
                       <h2 className="component-JobPage__tab-heading">
