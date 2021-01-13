@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles/app.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginPage from "./pages/Login/LoginPage";
-import ListPage from "./pages/ListPage/ListPage";
+import LoginPage from "./pages/Login";
+import ListPage from "./pages/ListPage";
 import JobPage from "./pages/JobPage";
 
 function App() {
