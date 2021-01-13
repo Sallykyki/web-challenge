@@ -1,4 +1,4 @@
-import React, { Component, FunctionComponent } from "react";
+import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { getJob, updateJob } from "../../data/fetchData";
 
@@ -11,6 +11,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 import "./JobPage.scss";
+import ChatBox from "../../components/ChatBox";
 
 interface IJobPageParams {
   id: string;
@@ -23,7 +24,7 @@ interface IState {
   job: any;
 }
 
-class JobPage extends Component<IProps, IState> {
+class JobPage extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
@@ -126,6 +127,7 @@ class JobPage extends Component<IProps, IState> {
           </Col>
           <Col>
             <h2>Room for discussion</h2>
+            <ChatBox />
           </Col>
         </Row>
       </Container>
